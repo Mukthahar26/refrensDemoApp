@@ -9,6 +9,7 @@ type Props = {
   onPress?: () => void;
 };
 
+//This component used to display card UI with elevation
 const Card = ({children, style, onPress}: Props) => {
   return (
     <AppButton onPress={onPress} style={[styles.container, style] as ViewStyle}>

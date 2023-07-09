@@ -11,6 +11,7 @@ type Props = {
   imageView?: ViewStyle;
 };
 
+//This component used to display URL Image with loading indicator
 const ImageLoader = ({source, style, imageView}: Props) => {
   const [loading, setLoading] = useState(true);
 

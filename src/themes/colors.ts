@@ -1,3 +1,4 @@
+// Commonly used Color codes of the App
 const colors = {
   black: '#000000',
   black1: '#1f1e1e',

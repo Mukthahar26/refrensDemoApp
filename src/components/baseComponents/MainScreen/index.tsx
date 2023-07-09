@@ -18,6 +18,10 @@ type props = {
   isScrollRequired: boolean;
   loading: boolean;
 };
+
+/* This is a common parent component for every screen.
+with this component, we can display back press arrow and also we can display child components 
+with scrollView and without scrollView depends on requirements. */
 const MainScreen = ({
   children,
   lottiStyle,
@@ -48,6 +52,7 @@ const MainScreen = ({
               numColumns={2}
               data={[{}]}
               renderItem={() => <View style={styles.content}>{children}</View>}
+              keyExtractor={(_, index) => 'key' + index}
             />
           ) : (
             <View>{children}</View>

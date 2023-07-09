@@ -1,5 +1,6 @@
 import {scale} from 'react-native-size-matters';
 
+// Commonly used size values
 const sizeValues = {
   fontSmall: scale(10),
   fontRegular: scale(12),

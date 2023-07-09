@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, FlatList} from 'react-native';
 import styles from './styles';
-import logger from '../../../utils/logger';
 import {getFetch} from '../../../connectivity/asyncFetch';
 import Card from '../../baseComponents/card';
 import AppText from '../../baseComponents/AppText';
@@ -14,6 +13,8 @@ type episodeResProps = {
   air_date: string;
   name: string;
 };
+
+// This component used to display list of episodes in which a specific character is featured.
 const EpisodeDetails = ({list}: Props) => {
   const [episodeList, setEpisodeList] = useState<episodeResProps[]>([]);
 
@@ -65,6 +66,7 @@ const EpisodeDetails = ({list}: Props) => {
         showsVerticalScrollIndicator={false}
         data={episodeList}
         renderItem={renderItems}
+        keyExtractor={(_, index) => 'key' + index}
       />
     </View>
   );

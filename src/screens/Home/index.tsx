@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import MainScreen from '../../components/baseComponents/MainScreen';
 import AppText from '../../components/baseComponents/AppText';
-import {fetchCharacters} from '../helper';
 import {FlatList, ImageStyle, TextStyle, ViewStyle} from 'react-native';
 import Card from '../../components/baseComponents/card';
 import styles from './styles';
@@ -11,6 +10,8 @@ import {RootStackParamList} from '../../navigations/rootNavigators';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {getSCharactertatusBgColor} from '../../utils/utils';
 import HeadingWithValue from '../../components/blockComponents/headingWithValue';
+import {getFetch} from '../../connectivity/asyncFetch';
+import Config from 'react-native-config';
 
 type Props = NativeStackScreenProps<RootStackParamList, screenNames.HOME>;
 
@@ -23,7 +24,7 @@ const Home = ({navigation}: Props) => {
 
   const getAllCharacters = async () => {
     setLoading(true);
-    const res: any = await fetchCharacters();
+    const res: any = await getFetch(Config.CHARACTER_URL);
     setLoading(false);
     if (res && res.results) {
       setCharacterList(res.results);
@@ -74,6 +75,7 @@ const Home = ({navigation}: Props) => {
         columnWrapperStyle={styles.columnStyle}
         data={characterList}
         renderItem={renderItems}
+        keyExtractor={(_, index) => 'key' + index}
       />
     </MainScreen>
   );

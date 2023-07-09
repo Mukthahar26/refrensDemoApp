@@ -16,6 +16,7 @@ type props = {
   rowStyle?: ViewStyle;
 };
 
+// This component is used to display side heading with value with equal size for every colomn. as well as withtout any space.
 const HeadingWithValue = ({
   list,
   style,
@@ -23,11 +24,11 @@ const HeadingWithValue = ({
   displayWithoutSpace = false,
   rowStyle,
 }: props) => {
-  const renderItems = (item: listProp) => {
+  const renderItems = (item: listProp, index: number) => {
     const {type, value} = item;
     if (displayWithoutSpace) {
       return (
-        <View style={[styles.row, {marginTop: 0}]}>
+        <View key={index} style={[styles.row, {marginTop: 0}]}>
           <AppText style={[styles.type, {flex: 0}, typeStyle] as TextStyle}>
             {type}
           </AppText>
@@ -54,7 +55,7 @@ const HeadingWithValue = ({
       );
     } else {
       return (
-        <View style={[styles.row, rowStyle]}>
+        <View key={index} style={[styles.row, rowStyle]}>
           <AppText style={[styles.type, typeStyle] as TextStyle}>
             {type}
           </AppText>
@@ -80,8 +81,8 @@ const HeadingWithValue = ({
   return (
     <View style={style}>
       {list &&
-        list.map(item => {
-          return item.value && renderItems(item);
+        list.map((item, index) => {
+          return item.value && renderItems(item, index);
         })}
     </View>
   );

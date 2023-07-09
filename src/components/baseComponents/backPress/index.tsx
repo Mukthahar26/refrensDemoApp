@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ViewStyle, TextStyle} from 'react-native';
+import {View, ViewStyle, TextStyle} from 'react-native';
 import AppButton from '../AppButton';
 import Entypo from 'react-native-vector-icons/Entypo';
 import styles from './styles';
@@ -11,6 +11,7 @@ import colors from '../../../themes/colors';
 type Props = {
   headerName: string;
 };
+//This component used to display clickable arrow icon to go back from the current screen.
 const BackPress = ({headerName}: Props) => {
   const navigation = useNavigation<any>();
   return (
