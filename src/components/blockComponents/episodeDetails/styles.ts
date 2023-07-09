@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     marginBottom: scale(50),
   },
   card: {
-    padding: scale(5),
+    padding: sizeValues.padding16,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: scale(8),

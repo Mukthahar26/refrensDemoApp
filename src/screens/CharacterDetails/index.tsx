@@ -58,6 +58,7 @@ const CharacterDetails = ({route}: Props) => {
     setLoading(false);
   };
 
+  const isEpisodeListAvailable = episode && episode.length;
   return (
     <MainScreen loading={loading} headerName={name}>
       <View style={styles.imageView}>
@@ -68,7 +69,11 @@ const CharacterDetails = ({route}: Props) => {
         Location Details :
       </AppText>
       <HeadingWithValue list={locationList} rowStyle={{marginTop: 0}} />
-      <AppText style={styles.locationLabel as TextStyle}>Featured in :</AppText>
+      {isEpisodeListAvailable && (
+        <AppText style={styles.locationLabel as TextStyle}>
+          Featured in :
+        </AppText>
+      )}
       <EpisodeDetails list={episode} />
     </MainScreen>
   );

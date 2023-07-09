@@ -3,6 +3,7 @@ import {ImageStyle, View, ViewStyle} from 'react-native';
 import {Image} from 'react-native';
 import Loader from '../loader';
 import logger from '../../../utils/logger';
+import styles from './styles';
 
 type Props = {
   source: string;
@@ -14,7 +15,7 @@ const ImageLoader = ({source, style, imageView}: Props) => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <View style={[style, imageView]}>
+    <View style={[styles.container, style, imageView]}>
       {loading && <Loader />}
       <Image
         source={{uri: source}}

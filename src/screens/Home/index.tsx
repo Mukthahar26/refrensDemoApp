@@ -5,7 +5,7 @@ import {fetchCharacters} from '../helper';
 import {FlatList, ImageStyle, TextStyle, ViewStyle} from 'react-native';
 import Card from '../../components/baseComponents/card';
 import styles from './styles';
-import {characterStatus, screenNames} from '../../enums/constants';
+import {screenNames} from '../../enums/constants';
 import ImageLoader from '../../components/baseComponents/imageLoader';
 import {RootStackParamList} from '../../navigations/rootNavigators';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';

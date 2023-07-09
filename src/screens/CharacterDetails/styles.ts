@@ -14,7 +14,6 @@ const styles = ScaledSheet.create({
     height: scale(screenWidth40Percent),
     width: scale(screenWidth40Percent),
     resizeMode: 'contain',
-    alignSelf: 'center',
     borderRadius: scale(screenWidth40Percent / 2),
   },
   textView: {
